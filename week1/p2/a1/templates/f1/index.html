@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/first.css'%}">
+</head>
+<body>
+    <h1> inside the app </h1>
+    <h1> author {{autohor}}  </h1>
+    {% if Age >= 18 %}
+       <p> you are ready to go </p>
+     {% else %}<p>kid you go home</p>
+    {% endif %} 
+
+    <table>
+
+<tr>
+    <th>name</th>
+    <th>age</th>
+    <th>roll</th> 
+</tr>
+
+{% for i in course %}
+    <tr>
+
+<td>  {{i.name}} </td>
+<td>  {{i.age}} </td>
+<td>  {{i.roll}} </td>
+
+    </tr>
+
+{% endfor %}
+    </table>
+
+<h1> {{ marks | add:"2" }}     </h1>
+<h1> {{ marks | divisibleby:"2" }}     </h1>
+    <h1>{{nam | length}}</h1>
+    <h1>{{nam | make_list}}</h1>
+    <h1>{{nam | wordcount}}</h1>
+    <h1>  {{blog | truncatewords:5 }} </h1>
+    {% static 'images/duk.jpg'  as nature %}
+    <img src="{{nature}}"alt="nature" />
+    <img src="{% get_static_prefix %}images/dog.jpg "alt="bird" />
+
+    <script src=" { 'js/first.js' %} "></script>
+</body>
+</html>
