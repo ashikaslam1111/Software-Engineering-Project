@@ -3,6 +3,18 @@ from.form import contact_form
 from.form import Student
 # Create your views here.
 
+def student(request):
+    if request.method == 'POST':
+            form  = Student(request.POST)
+            if form.is_valid():
+             
+              print(form.cleaned_data)
+              return render(request,'stu.html',{'form':form})
+    form  = Student()
+    return render(request,'stu.html',{'form':form})
+    
+
+
 def home(request):
     return render(request,'home.html')
 
@@ -24,9 +36,6 @@ def form(request):
     return render(request,'form.html')
 
 
-
-
-
 def django_form(request):
     if request.method == 'POST':
             print(1010)
@@ -38,26 +47,3 @@ def django_form(request):
     form  = contact_form()
     return render(request,'dj.html',{'form':form})
               
-   
-
-
-def student(request):
-    if request.method == 'POST':
-            
-           
-            form  = Student(request.POST)
-            if form.is_valid():
-             
-              print(form.cleaned_data)
-              return render(request,'stu.html',{'form':form})
-    form  = Student()
-    return render(request,'stu.html',{'form':form})
-    
-    
-    
-
-
-
-
-
-
