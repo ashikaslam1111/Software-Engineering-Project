@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{% load first_tag %}
+ {% block title %} about_page {% endblock title %}
+ 
+ {% block content%} aboutpage 
+ 
+ <h1>  author name {{author}} </h1>
+ <h1>  author name {{author|chnage_name:"change"}} </h1>
+ 
+ {% endblock %}
+ 
