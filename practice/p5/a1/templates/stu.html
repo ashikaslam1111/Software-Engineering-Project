@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} student_page {% endblock title %}
+
+{% block content %}
+
+<form method="post" style="width: 50%; height: 500px; margin-top: 400px;margin-left: 400px;" enctype="multipart/form-data">
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
+

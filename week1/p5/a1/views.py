@@ -1,17 +1,34 @@
 from django.shortcuts import render
 from.form import contact_form
 from.form import Student
+from.form import Pass_project
 # Create your views here.
+
+def Psspro(request):
+    if request.method == 'POST':
+            form  = Pass_project(request.POST,request.FILES)
+            if form.is_valid():
+             
+              print(form.cleaned_data)
+              return render(request,'pass.html',{'form':form})
+    
+    else:form = Pass_project()
+    return render(request, 'stu.html', {'form': form})
+
+
+
+
 
 def student(request):
     if request.method == 'POST':
-            form  = Student(request.POST)
+            form  = Student(request.POST,request.FILES)
             if form.is_valid():
              
               print(form.cleaned_data)
               return render(request,'stu.html',{'form':form})
-    form  = Student()
-    return render(request,'stu.html',{'form':form})
+    
+    else:form = Student()
+    return render(request, 'stu.html', {'form': form})
     
 
 
