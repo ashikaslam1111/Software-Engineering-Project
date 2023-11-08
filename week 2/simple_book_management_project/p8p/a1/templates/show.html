@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block title %} showpage {% endblock title %}
+
+{% block content%}
+{% load crispy_forms_tags %}
+
+
+
+{% if data %}
+<table class="table" style="width: 50%; margin: auto;">
+  <thead>
+
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">CATAGORY</th>
+      <th scope="col">ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+    {%for i in data %}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.catogory}}</td>
+      <td>  <button class="btn btn-warning">
+          <a href="{% url 'delete' id=i.id %} "
+          style="color: antiquewhite; text-decoration: none;"> Delete </a> </button>
+        
+          <button class="btn btn-danger"><a href=" {% url 'edit' id=i.id %} "
+            style="color: antiquewhite; text-decoration: none;"> Edit </a></button>
+
+
+        
+        
+        </td>
+
+
+
+
+
+    </tr>
+    {%endfor%}
+   
+
+  </tbody>
+</table>
+
+
+{% else %}
+    <h1 style="text-align: center; margin: 200px; font-size: 100px;">BOOK LIST IS EMPTY</h1>
+{%endif%}
+
+
+
+
+
+
+
+
+{% endblock %}

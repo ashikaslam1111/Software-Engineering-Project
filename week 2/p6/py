@@ -1,0 +1,3 @@
+Migrations for 'a1':
+  a1\migrations\0001_initial.py
+    - Create model Student
