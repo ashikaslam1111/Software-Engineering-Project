@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %} showpage {% endblock title %}
+
+
+
+
+{% block content%}
+
+
+<table class="table" style="width: 50%; margin: auto;">
+  <thead>
+
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">AUTHOR</th>
+      <th scope="col">CATAGORY</th>
+      <th scope="col">ACTION</th>
+    </tr>
+
+
+  </thead>
+  <tbody>
+   
+    
+    <tr>
+
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.author}}</td>
+      <td>{{i.catagory}}</td>
+      <td> <button class="btn btn-danger"><a href="{% url 'edit' pk=i.id %}"
+            style="color: antiquewhite; text-decoration: none;"> Edit </a></button> <button class="btn btn-warning">
+              <a href="{% url 'delete' pk=i.id %} "
+              style="color: antiquewhite; text-decoration: none;"> Delete </a> </button> </td>
+
+    </tr>
+  
+   
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+{% endblock%}

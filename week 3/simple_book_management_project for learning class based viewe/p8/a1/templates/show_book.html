@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %} showpage {% endblock title %}
+
+
+
+
+{% block content%}
+
+{% if data %}
+<table class="table" style="width: 50%; margin: auto;">
+  <thead>
+
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">AUTHOR</th>
+      <th scope="col">CATAGORY</th>
+      <th scope="col">ACTION</th>
+    </tr>
+
+
+  </thead>
+  <tbody>
+   
+    {%for i in data %}
+    <tr>
+
+      <td>{{i.id}}</td>
+      <td> <a href = "{% url 'book_detail'  i.id %} "> {{i.name}} <a/> </td>
+      
+    </tr>
+    {%endfor%}
+   
+
+  </tbody>
+</table>
+
+
+{% else %}
+    <h1 style="text-align: center; margin: 200px; font-size: 100px;">BOOK LIST IS EMPTY</h1>
+{%endif%}
+
+
+
+<h1>now</h1>
+
+
+
+{% endblock%}

@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block title %} addpage {% endblock title %}
+
+{% block content %}
+
+
+
+ {% if data %}
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">TITLE</th>
+          <th scope="col">STATUS</th>
+          <th scope="col">SEE DETAILS</th>
+          <th scope="col">ACTIONS</th>
+        </tr>
+      </thead>
+      {%for job in data %}
+      <tbody>
+        <tr>
+          <td>{{job.title}}</td>
+          <td>{{job.status}}</td>
+          <td>
+            <button class="btn btn-primary">
+              <a href="{% url 'details' job.id %}" style="color: antiquewhite; text-decoration: none">
+                DETAILS
+              </a>
+            </button>
+          </td>
+          <td>
+            
+
+            <button class="btn btn-danger">
+              <a
+                href="{% url 'delete' job.id %}"
+                style="color: antiquewhite; text-decoration: none"
+              >
+                DELETE
+              </a>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      {%endfor%}
+    </table>
+
+    {% else %}
+    <h1 style="text-align: center; margin: 200px; font-size: 100px">
+     NO HISTORY !! LET'S COMPLETE A TASK...
+    </h1>
+    {% endif %} 
+
+
+
+{% endblock %}

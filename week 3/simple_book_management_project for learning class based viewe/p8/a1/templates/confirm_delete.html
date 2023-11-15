@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %} storepage {% endblock title %}
+
+
+
+
+
+
+
+{% block content%}
+<h1>sure?</h1>
+{% load crispy_forms_tags %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <form method="post">
+        
+        {% csrf_token %}
+
+
+      <button type="submit" class="btn btn-info">SUBMIT</button>
+    </form>
+  </div>
+  
+
+
+
+{% endblock%}
