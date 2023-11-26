@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> 42c1c1ec1fc17d5941a8e676cd1932d5424b9de0
 from django.shortcuts import render,redirect,get_object_or_404
 from a1.models import MyTask
 from .import forms 
